@@ -25,6 +25,9 @@ class User extends Authenticatable
         'email',
         'password',
         'town',
+        'claimed',
+        'social_id',
+        'remember_token',
     ];
 
     /**
