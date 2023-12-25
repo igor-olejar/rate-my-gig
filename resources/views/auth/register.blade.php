@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @include('auth.components.google', ['title' => 'Register'])
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
