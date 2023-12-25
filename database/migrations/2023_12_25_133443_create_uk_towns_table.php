@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('local_government_area', 44);
             $table->string('nuts_region', 24);
             $table->string('type', 13);
-            $table->timestamps();
         });
     }
 
