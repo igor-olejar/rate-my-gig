@@ -24,6 +24,12 @@
         </div>
 
         <div>
+            <x-input-label for="town" :value="__('Town')" />
+            <x-select name="town" id="town" :options="$availableTowns" :value="old('town', $user->town)" class="mt-1 block w-full" required autofocus></x-select>
+            <x-input-error class="mt-2" :messages="$errors->get('town')" />
+        </div>
+
+        <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />

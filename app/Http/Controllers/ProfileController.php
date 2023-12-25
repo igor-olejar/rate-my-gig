@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Town;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,16 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $towns = Town::all(['id', 'name', 'county'])->sortBy("name");
+        $availableTowns = [];
+
+        foreach ($towns as $town) {
+            $availableTowns[] = ['id' => $town->id, 'name' => $town->name . ', ' . $town->county];
+        }
+
         return view('profile.edit', [
             'user' => $request->user(),
+            'availableTowns' => $availableTowns,
         ]);
     }
 
