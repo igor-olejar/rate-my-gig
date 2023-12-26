@@ -29,6 +29,7 @@ class User extends Authenticatable
         'claimed',
         'social_id',
         'remember_token',
+        'account_type',
     ];
 
     /**
