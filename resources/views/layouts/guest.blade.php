@@ -18,7 +18,9 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    <div class="flex justify-center">
+                        <h1 class="text-xl font-bold text-gray-900 dark:text-white">Rate My Gig</h1> 
+                    </div>
                 </a>
             </div>
 
