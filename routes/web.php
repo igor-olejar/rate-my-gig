@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -35,5 +36,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
+
+Route::post('/search', [SearchController::class, 'search'])->name('search');
 
 require __DIR__.'/auth.php';

@@ -32,8 +32,9 @@
                    <h1 class="text-xl font-bold text-gray-900 dark:text-white">Rate My Gig</h1> 
                 </div>
 
+                @include('components.home-search')
+
                 @auth
-                adsf
                 @else
                 <div class="mt-16">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
