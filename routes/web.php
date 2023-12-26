@@ -37,8 +37,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
-Route::post('/search', [SearchController::class, 'search'])
+Route::post('/search', SearchController::class)
     ->middleware('search.auth')
     ->name('search');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

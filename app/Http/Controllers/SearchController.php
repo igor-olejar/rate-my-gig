@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function search(Request $request): void
+    public function __invoke(Request $request): void
     {
         dd('searchy');
     }
