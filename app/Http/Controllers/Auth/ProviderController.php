@@ -22,8 +22,8 @@ class ProviderController extends Controller
         $user = User::updateOrCreate([
             'social_id' => $socialUser->id,
         ], [
-            'name'=> $socialUser->name,
-            'email'=> $socialUser->email,
+            'name' => $socialUser->name,
+            'email' => $socialUser->email,
             'claimed' => 1,
             'remember_token' => $socialUser->refreshToken,
         ]);
