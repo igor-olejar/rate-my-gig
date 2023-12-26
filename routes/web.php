@@ -22,7 +22,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $user = User::find(auth()->user()->id);
-    $alert = null === $user->town || $user->town === '';
+    $alert = $user->town === null || $user->town === '';
+
     return view('dashboard', ['alert' => $alert]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -32,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/auth/{provier}/redirect', [ProviderController::class,'redirect']);
-Route::get('/auth/{provier}/callback', [ProviderController::class,'callback']);
+Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

@@ -18,11 +18,11 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        $towns = Town::all(['id', 'name', 'county'])->sortBy("name");
+        $towns = Town::all(['id', 'name', 'county'])->sortBy('name');
         $availableTowns = [];
 
         foreach ($towns as $town) {
-            $availableTowns[] = ['id' => $town->id, 'name' => $town->name . ', ' . $town->county];
+            $availableTowns[] = ['id' => $town->id, 'name' => $town->name.', '.$town->county];
         }
 
         $accountTypes = array_column(AccountType::cases(), 'name', 'value');
