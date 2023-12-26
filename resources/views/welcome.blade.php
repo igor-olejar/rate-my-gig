@@ -32,6 +32,9 @@
                    <h1 class="text-xl font-bold text-gray-900 dark:text-white">Rate My Gig</h1> 
                 </div>
 
+                @auth
+                adsf
+                @else
                 <div class="mt-16">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
                         <a href="{{ route('register') }}?type=artist" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:ring-1 dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
@@ -69,6 +72,7 @@
                         </a>
                     </div>
                 </div>
+                @endauth
             </div>
         </div>
     </body>
