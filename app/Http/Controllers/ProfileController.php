@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\AccountType;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Town;
 use Illuminate\Http\RedirectResponse;
@@ -24,9 +25,12 @@ class ProfileController extends Controller
             $availableTowns[] = ['id' => $town->id, 'name' => $town->name . ', ' . $town->county];
         }
 
+        $accountTypes = array_column(AccountType::cases(), 'name', 'value');
+
         return view('profile.edit', [
             'user' => $request->user(),
             'availableTowns' => $availableTowns,
+            'accountTypes' => $accountTypes,
         ]);
     }
 
