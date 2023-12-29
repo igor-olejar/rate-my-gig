@@ -2,9 +2,9 @@
 
 namespace App\Repositories\Interfaces;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 
 interface UserRepositoryInterface
 {
-    public function findByNameOrTown(string $searchTerm): void; //Collection;
+    public function findByNameOrTown(string $searchTerm): Collection;
 }

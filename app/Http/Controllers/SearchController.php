@@ -11,6 +11,8 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
-        dd('here');
+        $users = $this->userRepository->findByNameOrTown($request->search_term);
+
+        return view("search_results", compact("users"));
     }
 }
