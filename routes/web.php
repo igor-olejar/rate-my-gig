@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
-Route::post('/search', SearchController::class)
+Route::post('/search', [SearchController::class, 'search'])
     ->middleware('search.auth')
     ->name('search');
 
