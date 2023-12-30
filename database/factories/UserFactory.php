@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'town' => rand(1, 10),
             'claimed' => 1,
-            'account_type' => 'artist',
+            'account_type' => fake()->randomElement(['artist', 'promoter', 'venue']),
         ];
     }
 

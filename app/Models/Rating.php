@@ -12,6 +12,7 @@ class Rating extends Model
 
     protected $fillable = [
         'rating',
+        'user_id',
     ];
 
     public function user(): BelongsTo
