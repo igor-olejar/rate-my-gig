@@ -6,18 +6,24 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <ul>
-                        @foreach ($users as $user)
-                            <li>
-                                {{ $user->name }} - {{ $user->town }}, {{ $user->county }}
-                            </li>
-                        @endforeach
-                    </ul>
+        @if ($users->isEmpty())
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-4">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        There are no artists, promoters or venues with string <strong>"{{ $search_term }}"</strong> in their name or town.
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
+
+        @foreach ($users as $user)
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-4">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        {{ $user->name }} - {{ $user->town }}, {{ $user->county }}
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
 </x-app-layout>
