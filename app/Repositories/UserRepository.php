@@ -12,10 +12,13 @@ class UserRepository implements UserRepositoryInterface
     {
         return DB::table('users')
         ->join('uk_towns', 'users.town', '=', 'uk_towns.id')
-        ->select('users.name', 'uk_towns.name AS town', 'uk_towns.county')
+        ->leftJoin('ratings', 'users.id', '=', 'ratings.user_id')
+        ->select('users.id', 'users.name', 'uk_towns.name AS town', 'uk_towns.county')
+        ->selectRaw('AVG(ratings.rating) as avg_rating')
         ->where('users.name', 'like', '%' . $searchTerm . '%')
         ->orWhere('uk_towns.name', 'like', '%' . $searchTerm . '%')
         ->orderBy('users.name')
+        ->groupBy('users.id')
         ->get();
     }
 }
