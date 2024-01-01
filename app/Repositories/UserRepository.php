@@ -14,7 +14,7 @@ class UserRepository implements UserRepositoryInterface
         ->join('uk_towns', 'users.town', '=', 'uk_towns.id')
         ->leftJoin('ratings', 'users.id', '=', 'ratings.user_id')
         ->select('users.id', 'users.name', 'uk_towns.name AS town', 'uk_towns.county')
-        ->selectRaw('AVG(ratings.rating) as avg_rating')
+        ->selectRaw('ROUND(AVG(ratings.rating), 1) as avg_rating')
         ->where('users.name', 'like', '%' . $searchTerm . '%')
         ->orWhere('uk_towns.name', 'like', '%' . $searchTerm . '%')
         ->orderBy('users.name')
